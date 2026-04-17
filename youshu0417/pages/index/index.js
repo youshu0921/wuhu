@@ -8,7 +8,7 @@ const {
   write
 } = require("../../utils/storage")
 
-const FREE_SWAP_LIMIT = 20
+const FREE_SWAP_LIMIT = 10
 const PAID_SWAP_COST = 5
 
 function toNumber(value, fallback) {
