@@ -1,0 +1,41 @@
+<view class="page">
+  <view class="rule-bar card-surface">
+    <text class="rule-item">积分：{{points}}</text>
+    <text class="rule-item">今日免费换人剩余：{{freeSwapRemaining}} 次</text>
+  </view>
+
+  <view class="card" wx:if="{{currentUser}}" bindtap="goDetail">
+    <view class="avatar-wrap">
+      <image class="avatar" src="{{currentUser.avatar}}" mode="aspectFill"></image>
+      <view class="verify-tag" wx:if="{{currentUser.verified}}">已实名</view>
+    </view>
+
+    <view class="name-row">
+      <text class="name">{{currentUser.nickname}}</text>
+      <text class="age">{{currentUser.age}}岁</text>
+    </view>
+
+    <view class="tags">
+      <text class="tag">{{currentUser.city}}</text>
+      <text class="tag">{{currentUser.education}}</text>
+      <text class="tag">{{currentUser.jobText}}</text>
+      <text class="tag">{{currentUser.carLabel}}</text>
+      <text class="tag">{{currentUser.houseLabel}}</text>
+    </view>
+
+    <view class="section-title">自我介绍</view>
+    <view class="intro">{{currentUser.introText}}</view>
+
+    <view class="section-title">择偶要求</view>
+    <view class="requirement">{{currentUser.requirementsTextView}}</view>
+  </view>
+
+  <view class="card card-surface" wx:else>
+    <text class="rule-item">暂无推荐数据，请先完善“我的-编辑资料”。</text>
+  </view>
+
+  <view class="actions">
+    <button class="btn skip" bindtap="nextUser">换一个</button>
+    <button class="btn like" bindtap="showContact">认识一下</button>
+  </view>
+</view>

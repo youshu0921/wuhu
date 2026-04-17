@@ -1,0 +1,85 @@
+<view class="page">
+  <view class="card avatar-card">
+    <image class="avatar" src="{{userInfo.avatar || 'https://picsum.photos/seed/default/200'}}" mode="aspectFill" bindtap="chooseAvatar"></image>
+    <text class="avatar-tip">点击头像更换</text>
+  </view>
+
+  <view class="card form-card">
+    <view class="form-item">
+      <text class="label">昵称</text>
+      <input class="input" placeholder="请输入昵称" value="{{userInfo.nickname}}" bindinput="inputNickname" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">城市</text>
+      <input class="input" placeholder="请输入所在城市" value="{{userInfo.city}}" bindinput="inputCity" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">性别</text>
+      <picker bindchange="changeGender" value="{{genderIndex}}" range="{{['男', '女']}}">
+        <view class="picker">{{userInfo.gender || '请选择'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">年龄</text>
+      <input class="input" type="number" placeholder="请输入年龄" value="{{userInfo.age}}" bindinput="inputAge" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">职业</text>
+      <input class="input" placeholder="请输入职业" value="{{userInfo.job}}" bindinput="inputJob" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">学历</text>
+      <picker bindchange="changeEducation" value="{{educationIndex}}" range="{{educationOptions}}">
+        <view class="picker">{{userInfo.education || educationOptions[educationIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">收入</text>
+      <picker bindchange="changeIncome" value="{{incomeIndex}}" range="{{incomeOptions}}">
+        <view class="picker">{{userInfo.incomeRange || incomeOptions[incomeIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">有车</text>
+      <picker bindchange="changeHasCar" value="{{hasCarIndex}}" range="{{boolOptions}}">
+        <view class="picker">{{boolOptions[hasCarIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">有房</text>
+      <picker bindchange="changeHasHouse" value="{{hasHouseIndex}}" range="{{boolOptions}}">
+        <view class="picker">{{boolOptions[hasHouseIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">身高</text>
+      <input class="input" type="number" placeholder="请输入身高(cm)" value="{{userInfo.height}}" bindinput="inputHeight" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">体重</text>
+      <input class="input" type="number" placeholder="请输入体重(kg)" value="{{userInfo.weight}}" bindinput="inputWeight" />
+    </view>
+
+    <view class="form-item textarea-item">
+      <text class="label">自我介绍</text>
+      <textarea class="textarea" placeholder="介绍一下自己..." value="{{userInfo.bio}}" bindinput="inputBio" />
+    </view>
+
+    <view class="form-item textarea-item no-border">
+      <text class="label">择偶要求</text>
+      <textarea class="textarea" placeholder="写下你的择偶要求..." value="{{userInfo.partnerRequirement}}" bindinput="inputPartnerRequirement" />
+    </view>
+  </view>
+
+  <button class="save-btn" bindtap="saveProfile">保存资料</button>
+</view>

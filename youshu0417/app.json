@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/square/square",
+    "pages/messages/messages",
+    "pages/mine/mine",
+    "pages/realname/realname",
+    "pages/profileEdit/profileEdit",
+    "pages/favorites/favorites",
+    "pages/detail/detail",
+    "pages/chatRoom/chatRoom",
+    "pages/library/library"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "\u6709\u4e66\u76f8\u4eb2",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ff6b6b",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "\u63a8\u8350"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "\u5e7f\u573a"
+      },
+      {
+        "pagePath": "pages/messages/messages",
+        "text": "\u6d88\u606f"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "\u6211\u7684"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
