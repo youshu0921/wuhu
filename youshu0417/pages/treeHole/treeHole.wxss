@@ -1,0 +1,212 @@
+.page {
+  height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部导航 */
+.tab-bar {
+  display: flex;
+  background: #fff;
+  padding: 20rpx 40rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  font-size: 30rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab.active {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #ff6b6b;
+  border-radius: 2rpx;
+}
+
+/* 列表 */
+.posts-list {
+  flex: 1;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 帖子卡片 */
+.post-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+
+.post-info {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  display: block;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.post-tags {
+  display: flex;
+  gap: 8rpx;
+}
+
+.mini-tag {
+  font-size: 22rpx;
+  color: #ff6b6b;
+  background: #fff5f5;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+.post-content {
+  margin-bottom: 16rpx;
+}
+
+.text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  display: block;
+}
+
+.media-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+  margin-top: 12rpx;
+}
+
+.media-item {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+}
+
+.post-footer {
+  display: flex;
+  align-items: center;
+  gap: 32rpx;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.icon {
+  font-size: 32rpx;
+  color: #999;
+}
+
+.icon.liked {
+  color: #ff6b6b;
+}
+
+.count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.lock-icon {
+  font-size: 24rpx;
+}
+
+.lock-text {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 我的树洞 */
+.my-post .post-header {
+  justify-content: space-between;
+}
+
+.delete-btn {
+  font-size: 26rpx;
+  color: #ff6b6b;
+}
+
+.delete-timer {
+  font-size: 24rpx;
+  color: #ff9500;
+}
+
+.keep-forever {
+  font-size: 24rpx;
+  color: #4cd964;
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.empty-hint {
+  display: block;
+  font-size: 24rpx;
+  color: #ccc;
+  margin-top: 16rpx;
+}
+
+/* 发布按钮 */
+.fab {
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(255, 107, 107, 0.4);
+}
+
+.fab-icon {
+  font-size: 50rpx;
+  color: #fff;
+  font-weight: 300;
+}

@@ -1,0 +1,27 @@
+page {
+  background: #f3f5f8;
+  font-size: 28rpx;
+  color: #1f2a44;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  border: none;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+.card-surface {
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 24rpx rgba(19, 33, 68, 0.06);
+}

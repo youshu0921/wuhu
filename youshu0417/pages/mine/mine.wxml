@@ -1,0 +1,62 @@
+﻿<view class="page">
+  <view class="header-card">
+    <image class="avatar" src="{{userInfo.avatar || 'https://picsum.photos/seed/default/200'}}" mode="aspectFill"></image>
+    <view class="user-info">
+      <text class="nickname">{{userInfo.nickname || '请先完善资料'}}</text>
+      <text class="id">ID: {{userInfo.id || '未生成'}}</text>
+      <text class="stats">累计打卡 {{checkInDays}} 天</text>
+      <text class="stats">当前积分 {{points}}</text>
+    </view>
+    <button class="edit-btn" bindtap="goEditProfile">编辑资料</button>
+  </view>
+
+  <view class="summary-card">
+    <view class="section-title">我的资料概览</view>
+    <view class="summary-grid">
+      <view class="summary-item" wx:for="{{profileSummary}}" wx:key="label">
+        <text class="summary-label">{{item.label}}</text>
+        <text class="summary-value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goRealName">
+      <text class="label">实名认证</text>
+      <text class="status-badge {{realNameStatusClass}}">{{realNameStatusText}}</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="goFavorite">
+      <text class="label">我的收藏</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="checkIn">
+      <text class="label">每日打卡（+10积分）</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="goTreeHole">
+      <text class="label">树洞</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="contactService">
+      <text class="label">联系客服</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+
+  <view wx:if="{{showCalendar}}" class="calendar-mask" bindtap="closeCalendar">
+    <view class="calendar-panel" catchtap="noop">
+      <view class="calendar-header">
+        <text class="calendar-title">{{monthLabel}} 打卡记录</text>
+        <text class="calendar-close" bindtap="closeCalendar">关闭</text>
+      </view>
+      <text class="calendar-summary">本月已打卡 {{monthCheckedCount}} 天</text>
+      <view class="calendar-grid">
+        <view class="calendar-day" wx:for="{{calendarDays}}" wx:key="day">
+          <text class="day-num">{{item.day}}</text>
+          <text wx:if="{{item.checked}}" class="checked-mark">✓</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

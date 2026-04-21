@@ -1,0 +1,80 @@
+<view class="page">
+  <view class="form">
+    <!-- 内容输入 -->
+    <view class="form-item">
+      <textarea 
+        class="content-input" 
+        placeholder="分享你的困惑、压力或求助..." 
+        bindinput="onContentInput"
+        value="{{content}}"
+        maxlength="500"
+      ></textarea>
+      <text class="char-count">{{content.length}}/500</text>
+    </view>
+
+    <!-- 图片 -->
+    <view class="form-item" wx:if="{{images.length > 0}}">
+      <view class="media-list">
+        <view class="media-item" wx:for="{{images}}" wx:key="index">
+          <image src="{{item}}" mode="aspectFill"></image>
+          <view class="remove-btn" catchtap="removeImage" data-index="{{index}}">×</view>
+        </view>
+      </view>
+    </view>
+    <view class="form-item add-btns">
+      <view class="add-btn" catchtap="chooseImage">+ 图片</view>
+      <view class="add-btn" catchtap="chooseVideo">+ 视频</view>
+    </view>
+
+    <!-- 标签选择 -->
+    <view class="form-item">
+      <view class="label">选择标签（必选）</view>
+      <view class="tags-list">
+        <view 
+          class="tag {{selectedTags.indexOf(item) !== -1 ? 'selected' : ''}}" 
+          wx:for="{{tags}}" 
+          wx:key="index"
+          catchtap="toggleTag"
+          data-tag="{{item}}"
+        >{{item}}</view>
+      </view>
+    </view>
+
+    <!-- 权限选择 -->
+    <view class="form-item">
+      <view class="label">谁可以看</view>
+      <view class="options-list">
+        <view 
+          class="option {{permission === item.value ? 'selected' : ''}}"
+          wx:for="{{permissions}}"
+          wx:key="value"
+          catchtap="selectPermission"
+          data-value="{{item.value}}"
+        >
+          <text class="option-label">{{item.label}}</text>
+          <text class="option-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 定时删除 -->
+    <view class="form-item">
+      <view class="label">自动删除</view>
+      <view class="options-list">
+        <view 
+          class="option {{deleteOption === item.value ? 'selected' : ''}}"
+          wx:for="{{deleteOptions}}"
+          wx:key="value"
+          catchtap="selectDeleteOption"
+          data-value="{{item.value}}"
+        >
+          <text class="option-label">{{item.label}}</text>
+          <text class="option-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 发布按钮 -->
+    <view class="submit-btn" catchtap="submit">发布</view>
+  </view>
+</view>

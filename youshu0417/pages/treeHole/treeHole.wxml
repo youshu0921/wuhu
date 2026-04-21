@@ -1,0 +1,117 @@
+<view class="page">
+  <!-- 顶部导航 -->
+  <view class="tab-bar">
+    <view class="tab {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">互助</view>
+    <view class="tab {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">我的树洞</view>
+  </view>
+
+  <!-- 互助广场 -->
+  <scroll-view class="posts-list" scroll-y wx:if="{{currentTab === 0}}">
+    <view 
+      class="post-card" 
+      wx:for="{{publicPosts}}" 
+      wx:key="id"
+      bindtap="goDetail"
+      data-id="{{item.id}}"
+    >
+      <view class="post-header">
+        <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="post-info">
+          <text class="nickname">{{item.nickname}}</text>
+          <text class="time">{{item.timeDisplay || item.time}}</text>
+        </view>
+        <view class="post-tags" wx:if="{{item.tags && item.tags.length}}">
+          <text class="mini-tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="index">{{tag}}</text>
+        </view>
+      </view>
+      
+      <view class="post-content">
+        <text class="text">{{item.content || item.text}}</text>
+        <view class="media-grid" wx:if="{{item.images && item.images.length}}">
+          <image 
+            class="media-item" 
+            wx:for="{{item.images}}" 
+            wx:for-item="img" 
+            src="{{img}}" 
+            mode="aspectFill"
+            wx:key="index"
+          ></image>
+        </view>
+      </view>
+
+      <view class="post-footer">
+        <view class="action-btn" catchtap="likePost" data-id="{{item.id}}">
+          <text class="icon {{item.liked ? 'liked' : ''}}">♥</text>
+          <text class="count">{{item.likeCount || 0}}</text>
+        </view>
+        <view class="action-btn" wx:if="{{item.permission === 3}}">
+          <text class="icon">💬</text>
+          <text class="count">{{item.commentCount || 0}}</text>
+        </view>
+        <view class="action-btn" wx:if="{{item.permission === 1}}">
+          <text class="lock-icon">🔒</text>
+          <text class="lock-text">仅自己可见</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{publicPosts.length === 0}}">
+      <text>暂无树洞内容</text>
+      <text class="empty-hint">快来发布第一个树洞吧</text>
+    </view>
+  </scroll-view>
+
+  <!-- 我的树洞 -->
+  <scroll-view class="posts-list" scroll-y wx:if="{{currentTab === 1}}">
+    <view 
+      class="post-card my-post" 
+      wx:for="{{myPosts}}" 
+      wx:key="id"
+    >
+      <view class="post-header">
+        <text class="time">{{item.timeDisplay || item.time}}</text>
+        <text class="delete-btn" catchtap="deletePost" data-id="{{item.id}}">删除</text>
+      </view>
+      
+      <view class="post-content">
+        <text class="text">{{item.content || item.text}}</text>
+        <view class="media-grid" wx:if="{{item.images && item.images.length}}">
+          <image 
+            class="media-item" 
+            wx:for="{{item.images}}" 
+            wx:for-item="img" 
+            src="{{img}}" 
+            mode="aspectFill"
+            wx:key="index"
+          ></image>
+        </view>
+      </view>
+
+      <view class="post-footer">
+        <view class="action-btn">
+          <text class="icon {{item.liked ? 'liked' : ''}}">♥</text>
+          <text class="count">{{item.likeCount || 0}}</text>
+        </view>
+        <view class="action-btn">
+          <text class="icon">💬</text>
+          <text class="count">{{item.commentCount || 0}}</text>
+        </view>
+        <view class="delete-timer" wx:if="{{item.deleteOption > 0}}">
+          <text>将在 {{item.deleteCountdown}} 后删除</text>
+        </view>
+        <view class="keep-forever" wx:else>
+          <text>永久保留</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{myPosts.length === 0}}">
+      <text>你还没有发布过树洞</text>
+    </view>
+  </scroll-view>
+
+  <!-- 发布按钮 -->
+  <view class="fab" bindtap="goPost">
+    <text class="fab-icon">+</text>
+  </view>
+</view>

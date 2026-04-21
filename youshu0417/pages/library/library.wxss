@@ -1,0 +1,61 @@
+.page {
+  min-height: 100vh;
+  background: #f3f5f8;
+}
+
+.search-bar {
+  padding: 20rpx;
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 18rpx;
+  box-shadow: 0 8rpx 24rpx rgba(19, 33, 68, 0.06);
+}
+
+.search-input {
+  height: 72rpx;
+  border-radius: 36rpx;
+  background: #f6f8fd;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+}
+
+.list {
+  padding: 0 20rpx 20rpx;
+}
+
+.item {
+  background: #fff;
+  border-radius: 18rpx;
+  padding: 22rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 8rpx 24rpx rgba(19, 33, 68, 0.06);
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2a44;
+}
+
+.category {
+  margin-top: 10rpx;
+  display: inline-block;
+  font-size: 22rpx;
+  color: #42507a;
+  background: #edf2ff;
+  border-radius: 14rpx;
+  padding: 4rpx 12rpx;
+}
+
+.summary {
+  margin-top: 12rpx;
+  color: #5b6783;
+  line-height: 1.6;
+  font-size: 26rpx;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+  padding: 80rpx 0;
+}
